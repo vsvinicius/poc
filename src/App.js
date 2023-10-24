@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import { withLDProvider } from "launchdarkly-react-client-sdk";
+import HelloWorld from "./HelloWorld"; //We will add this code in the next step
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <HelloWorld />
       </header>
     </div>
   );
 }
-
-export default App;
+// Update the export default to use your environment-specific client ID and a sample context:
+export default withLDProvider({
+  clientSideID: "6531716b00cad612d8b0f034",
+  context: {
+    kind: "user",
+    key: "example_user",
+    name: "Example user",
+    email: "User@example.com",
+  },
+})(App);
