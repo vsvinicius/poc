@@ -15,8 +15,6 @@ export default withLDProvider({
   clientSideID: "6531716b00cad612d8b0f034",
   context: {
     kind: "user",
-    key: "example_user",
-    name: "Example user",
-    email: "User@example.com",
+    anonymous: true,
   },
 })(App);
